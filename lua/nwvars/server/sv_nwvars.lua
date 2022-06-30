@@ -24,7 +24,7 @@ end
 
 function PLAYER:setNWInt( id, value, size )
     if !IsValid(self) or !self.NWVars then return end
-    local size = math.Clamp( size, 3, 32 ) or 10
+    size = size or 10
 
     self.NWVars["Int"][id] = value
 
