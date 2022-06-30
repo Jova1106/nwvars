@@ -1,8 +1,8 @@
 util.AddNetworkString("nwvars_ClientLoaded")
 util.AddNetworkString("nwvars_InitNetworkVars")
+util.AddNetworkString("nwvars_NWBool")
 util.AddNetworkString("nwvars_NWFloat")
 util.AddNetworkString("nwvars_NWInt")
-util.AddNetworkString("nwvars_NWBool")
 util.AddNetworkString("nwvars_NWString")
 
 local function OnClientLoaded( _, pl )
