@@ -38,7 +38,7 @@ end
 
 local function LoadOrder(tbl)
 	local loadOrder = {}
-
+	
 	if SERVER then
 		for _, dir in next, tbl do
 			if dir == "shared" then
@@ -58,17 +58,17 @@ local function LoadOrder(tbl)
 			end
 		end
 	end
-
+	
 	return loadOrder
 end
 
 function LoadPlugins(dir)
 	dir = dir or "main"
-
+	
 	local _, pluginDirs = fileFind( stringformat( "%s/*", dir ), "LUA", sort_mode )
-
+	
 	pluginDirs = LoadOrder(pluginDirs)
-
+	
 	for n, folder in next, pluginDirs do		
 		if fileIsDir( dir, "LUA" ) then			
 			if CheckDirectories[folder] then
@@ -76,12 +76,12 @@ function LoadPlugins(dir)
 				
 				for _, d in next, directories do
 					local sub_files, sub_directories = fileFind( stringformat( "%s/%s/%s/*", dir, folder, d ), "LUA", sort_mode )
-
+					
 					for k, f in next, sub_files do
 						local path = stringformat( "%s/%s/%s/%s", dir, folder, d, f )
-
+						
 						if !stringEndsWith( path, ".lua" ) then continue end
-
+						
 						AddFiles( folder, path )
 						
 						print( stringformat( "%s - %s/[%s]: %s", category, folder, k, path ) )
@@ -98,7 +98,7 @@ function LoadPlugins(dir)
 					print( stringformat( "%s - %s/%s: %s", category, folder, k, path ) )
 				end
 			end
-
+			
 			print()
 		end
 	end

@@ -8,6 +8,6 @@ net.Receive( "nwvars_InitNetworkVars", function()
 	local pl = LocalPlayer()
 	if !IsValid(pl) then return end
 	local tbl = net.ReadTable()
-
+	
 	pl.NWVars = tbl
 end )
