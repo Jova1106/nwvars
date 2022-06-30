@@ -1,0 +1,9 @@
+"AddonInfo"
+{
+	"name"			"NWVars"
+	"version"		"1.0"
+	"up_date"		"June 30, 2022"
+	"author_name"	"Jova"
+	"info"			"NWVars"
+	"override"		"0"
+}
