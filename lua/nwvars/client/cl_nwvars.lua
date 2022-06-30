@@ -2,7 +2,15 @@ local PLAYER = FindMetaTable("Player")
 local LocalPlayer = LocalPlayer
 local tonumber = tonumber
 
-net.Receive( "NWFloat", function()
+net.Receive( "nwvars_NWBool", function()
+	if !IsValid(LocalPlayer()) or !LocalPlayer().NWVars then return end
+    local id = net.ReadString()
+    local bool = net.ReadBool()
+    
+    LocalPlayer().NWVars["Bool"][id] = bool
+end )
+
+net.Receive( "nwvars_NWFloat", function()
 	if !IsValid(LocalPlayer()) or !LocalPlayer().NWVars then return end
     local id = net.ReadString()
     local float = net.ReadFloat()
@@ -10,7 +18,7 @@ net.Receive( "NWFloat", function()
     LocalPlayer().NWVars["Float"][id] = float
 end )
 
-net.Receive( "NWInt", function()
+net.Receive( "nwvars_NWInt", function()
 	if !IsValid(LocalPlayer()) or !LocalPlayer().NWVars then return end
     local id = net.ReadString()
     local size = tonumber(net.ReadString())
@@ -19,15 +27,7 @@ net.Receive( "NWInt", function()
     LocalPlayer().NWVars["Int"][id] = int
 end )
 
-net.Receive( "NWBool", function()
-	if !IsValid(LocalPlayer()) or !LocalPlayer().NWVars then return end
-    local id = net.ReadString()
-    local bool = net.ReadBool()
-    
-    LocalPlayer().NWVars["Bool"][id] = bool
-end )
-
-net.Receive( "NWString", function()
+net.Receive( "nwvars_NWString", function()
 	if !IsValid(LocalPlayer()) or !LocalPlayer().NWVars then return end
     local id = net.ReadString()
     local str = net.ReadString()
