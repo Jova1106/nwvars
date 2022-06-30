@@ -11,9 +11,9 @@ end
 net.Receive( "nwvars_ClientLoaded", OnClientLoaded )
 
 local InitNetworkVars = {
+	["TestBool"] = { type = "Bool", default = false },
 	["TestFloat"] = { type = "Float", default = 0.0 },
 	["TestInt"] = { type = "Int", default = 0 },
-	["TestBool"] = { type = "Bool", default = false },
 	["TestString"] = { type = "String", default = "undefined" },
 }
 
