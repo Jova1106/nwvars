@@ -10,29 +10,33 @@ local function OnClientLoaded( _, pl )
 end
 net.Receive( "nwvars_ClientLoaded", OnClientLoaded )
 
-local InitNetworkVars = {
+local NetworkVars = {
 	["TestBool"] = { type = "Bool", default = false },
 	["TestFloat"] = { type = "Float", default = 0.0 },
 	["TestInt"] = { type = "Int", default = 0 },
 	["TestString"] = { type = "String", default = "undefined" },
 }
 
-local function OnPlayerLoaded(pl)
-	if !IsValid(pl) then return end
-	
+local function InitNetworkVars(pl)
 	pl.NWVars = {}
 	pl.NWVars["Bool"] = {}
 	pl.NWVars["Float"] = {}
 	pl.NWVars["Int"] = {}
 	pl.NWVars["String"] = {}
 	
-	for id, data in next, InitNetworkVars do
+	for id, data in next, NetworkVars do
 		pl.NWVars[data.type][id] = data.default
 	end
 	
 	net.Start("nwvars_InitNetworkVars")
 	net.WriteTable(pl.NWVars)
 	net.Send(pl)
+end
+
+local function OnPlayerLoaded(pl)
+	if !IsValid(pl) then return end
+	
+	InitNetworkVars(pl)
 	
 	print("[NWVARS] "..pl:Nick().." has successfully loaded.")
 end
