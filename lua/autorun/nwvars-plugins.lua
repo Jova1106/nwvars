@@ -5,7 +5,6 @@ local msg = string.format( "%s - %s | %s", category, File, init )
 local file = file
 local fileFind = file.Find
 local fileIsDir = file.IsDir
-local stringStartWith = string.StartWith
 local stringEndsWith = string.EndsWith
 local stringformat = string.format
 local AddCSLuaFile = AddCSLuaFile
