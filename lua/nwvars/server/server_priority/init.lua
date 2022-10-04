@@ -10,6 +10,13 @@ local function OnClientLoaded( _, pl )
 end
 net.Receive( "nwvars_ClientLoaded", OnClientLoaded )
 
+local Default = {
+	["Bool"] = false,
+	["Float"] = 0.0,
+	["Int"] = 0,
+	["String"] = "undefined"
+}
+
 local NetworkVars = {
 	["TestBool"] = { type = "Bool", default = false },
 	["TestFloat"] = { type = "Float", default = 0.0 },
@@ -25,7 +32,7 @@ local function InitNetworkVars(pl)
 	pl.NWVars["String"] = {}
 	
 	for id, data in next, NetworkVars do
-		pl.NWVars[data.type][id] = data.default
+		pl.NWVars[data.type][id] = data.default or Default[data.type]
 	end
 	
 	net.Start("nwvars_InitNetworkVars")
