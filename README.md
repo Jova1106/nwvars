@@ -15,4 +15,4 @@ NWFloat,
 NWInt,
 NWBool,
 NWString,
-NWTable,
+NWTable
