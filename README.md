@@ -12,8 +12,8 @@ All getNW_ functions take a string argument as the ID, and can be called on the 
 
 # Currently Supported:
 
-	NWFloat,
-	NWInt,
-	NWBool,
-	NWString,
+	NWFloat
+	NWInt
+	NWBool
+	NWString
 	NWTable
