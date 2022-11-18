@@ -23,3 +23,9 @@ function PLAYER:getNWString(id)
 	
 	return self.NWVars and self.NWVars["String"] and self.NWVars["String"][id] or "undefined"
 end
+
+function PLAYER:getNWTable(id)
+	if !IsValid(self) then return end
+	
+	return self.NWVars and self.NWVars["Table"] and self.NWVars["Table"][id] or {}
+end
