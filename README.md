@@ -11,8 +11,9 @@ For PLAYER:setNWInt(), you can specify an optional third argument, size = number
 All getNW_ functions take a string argument as the ID, and can be called on the client and the server.
 
 # Currently Supported:
-NWFloat,
-NWInt,
-NWBool,
-NWString,
-NWTable
+
+	NWFloat,
+	NWInt,
+	NWBool,
+	NWString,
+	NWTable
