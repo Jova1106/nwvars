@@ -14,14 +14,16 @@ local Default = {
 	["Bool"] = false,
 	["Float"] = 0.0,
 	["Int"] = 0,
-	["String"] = "undefined"
+	["String"] = "undefined",
+	["Table"] = {}
 }
 
 local NetworkVars = {
-	["TestBool"] = { type = "Bool", default = false },
-	["TestFloat"] = { type = "Float", default = 0.0 },
-	["TestInt"] = { type = "Int", default = 0 },
-	["TestString"] = { type = "String", default = "undefined" },
+	["TestBool"] = {type = "Bool", default = false},
+	["TestFloat"] = {type = "Float", default = 0.0},
+	["TestInt"] = {type = "Int", default = 0},
+	["TestString"] = {type = "String", default = "undefined"},
+	["TestTable"] = {type = "Table", default = {}}
 }
 
 local function InitNetworkVars(pl)

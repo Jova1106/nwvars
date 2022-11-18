@@ -1,6 +1,6 @@
 local PLAYER = FindMetaTable("Player")
 
-function PLAYER:setNWBool( id, bool )
+function PLAYER:setNWBool(id, bool)
 	if !IsValid(self) or !self.NWVars then return end
 	
 	self.NWVars["Bool"][id] = bool
@@ -11,7 +11,7 @@ function PLAYER:setNWBool( id, bool )
 	net.Send(self)
 end
 
-function PLAYER:setNWFloat( id, float )
+function PLAYER:setNWFloat(id, float)
 	if !IsValid(self) or !self.NWVars then return end
 	
 	self.NWVars["Float"][id] = float
@@ -22,7 +22,7 @@ function PLAYER:setNWFloat( id, float )
 	net.Send(self)
 end
 
-function PLAYER:setNWInt( id, value, size )
+function PLAYER:setNWInt(id, value, size)
 	if !IsValid(self) or !self.NWVars then return end
 	size = size or 10
 	
@@ -35,7 +35,7 @@ function PLAYER:setNWInt( id, value, size )
 	net.Send(self)
 end
 
-function PLAYER:setNWString( id, str )
+function PLAYER:setNWString(id, str)
 	if !IsValid(self) or !self.NWVars then return end
 	
 	self.NWVars["String"][id] = str
@@ -43,5 +43,16 @@ function PLAYER:setNWString( id, str )
 	net.Start("nwvars_NWString")
 	net.WriteString(id)
 	net.WriteString(str)
+	net.Send(self)
+end
+
+function PLAYER:setNWTable(id, tbl)
+	if !IsValid(self) or !self.NWVars then return end
+	
+	self.NWVars["Table"][id] = tbl
+	
+	net.Start("nwvars_NWTable")
+	net.WriteString(id)
+	net.WriteTable(tbl)
 	net.Send(self)
 end
