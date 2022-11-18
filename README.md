@@ -9,3 +9,10 @@ All setNW_ functions take a string argument as the ID, and a value that matches 
 For PLAYER:setNWInt(), you can specify an optional third argument, size = number of bits (3-32). Default size = 10.
 
 All getNW_ functions take a string argument as the ID, and can be called on the client and the server.
+
+# Currently Supported:
+NWFloat
+NWInt
+NWBool
+NWString
+NWTable
