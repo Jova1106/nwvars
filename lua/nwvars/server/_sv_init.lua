@@ -32,6 +32,7 @@ local function InitNetworkVars(pl)
 	pl.NWVars["Float"] = {}
 	pl.NWVars["Int"] = {}
 	pl.NWVars["String"] = {}
+	pl.NWVars["Table"] = {}
 	
 	for id, data in next, NetworkVars do
 		pl.NWVars[data.type][id] = data.default or Default[data.type]
