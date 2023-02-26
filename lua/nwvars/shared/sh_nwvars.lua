@@ -29,3 +29,9 @@ function PLAYER:getNWTable(id)
 	
 	return self.NWVars and self.NWVars["Table"] and self.NWVars["Table"][id] or {}
 end
+
+function PLAYER:getNWAngle(id)
+	if !IsValid(self) then return end
+	
+	return self.NWVars and self.NWVars["Angle"] and self.NWVars["Angle"][id] or {}
+end

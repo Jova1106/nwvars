@@ -42,3 +42,11 @@ net.Receive("nwvars_NWTable", function()
 	
 	LocalPlayer().NWVars["Table"][id] = tbl
 end)
+
+net.Receive("nwvars_NWAngle", function()
+	if !IsValid(LocalPlayer()) or !LocalPlayer().NWVars then return end
+	local id = net.ReadString()
+	local ang = net.ReadAngle()
+	
+	LocalPlayer().NWVars["Angle"][id] = ang
+end)

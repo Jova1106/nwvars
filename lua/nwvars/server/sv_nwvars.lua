@@ -56,3 +56,14 @@ function PLAYER:setNWTable(id, tbl)
 	net.WriteTable(tbl)
 	net.Send(self)
 end
+
+function PLAYER:setNWAngle(id, ang)
+	if !IsValid(self) or !self.NWVars then return end
+	
+	self.NWVars["Angle"][id] = ang
+	
+	net.Start("nwvars_NWAngle")
+	net.WriteString(id)
+	net.WriteAngle(ang)
+	net.Send(self)
+end
