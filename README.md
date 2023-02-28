@@ -1,6 +1,6 @@
 # NWVars Instructions
 
-Edit the InitNetworkVars table in lua/nwvars/server/server_priority/init.lua to initialize any variables that you want to use.
+Edit the InitNetworkVars table in lua/nwvars/server/_sv_init.lua to initialize any variables that you want to use.
 Uninitialized variables won't be recognized.
 
 These functions are designed to allow networked variables to be set on the server, received on the client, and called on both.
@@ -17,3 +17,4 @@ All getNW_ functions take a string argument as the ID, and can be called on the 
 	NWBool
 	NWString
 	NWTable
+	NWAngle
