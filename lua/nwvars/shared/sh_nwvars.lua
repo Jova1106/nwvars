@@ -1,4 +1,5 @@
 local PLAYER = FindMetaTable("Player")
+local angle_0 = Angle(0,0,0)
 
 function PLAYER:getNWFloat(id)
 	if !IsValid(self) then return end
@@ -33,5 +34,5 @@ end
 function PLAYER:getNWAngle(id)
 	if !IsValid(self) then return end
 	
-	return self.NWVars and self.NWVars["Angle"] and self.NWVars["Angle"][id] or {}
+	return self.NWVars and self.NWVars["Angle"] and self.NWVars["Angle"][id] or angle_0
 end
