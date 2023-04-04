@@ -1,6 +1,6 @@
 local root_folder_name = "nwvars"
-local category, File, init = root_folder_name, root_folder_name.."_modules.lua", "INITIALIZED"
-local msg = ("%s - %s | %s"):format(category, File, init)
+local category, File, init = root_folder_name, "modules.lua", "INITIALIZED"
+local msg = ("%s -> %s | %s"):format(category, File, init)
 local lua_root = root_folder_name.."/lua"
 local file_Find = file.Find
 local AddCSLuaFile = AddCSLuaFile
