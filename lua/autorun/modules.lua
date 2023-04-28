@@ -1,4 +1,4 @@
-local root_folder_name = "nwvars"
+local root_folder_name = "NWVars"
 local category, File, init = root_folder_name, "modules.lua", "INITIALIZED"
 local msg = ("%s -> %s | %s"):format(category, File, init)
 local lua_root = root_folder_name.."/lua"
