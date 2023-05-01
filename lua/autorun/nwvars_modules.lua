@@ -1,7 +1,6 @@
-local root_folder_name = "NWVars"
-local category, File, init = root_folder_name, "modules.lua", "INITIALIZED"
-local msg = ("%s -> %s | %s"):format(category, File, init)
-local lua_root = root_folder_name.."/lua"
+print()
+
+local root_folder_name = debug.getinfo(1).short_src:match("addons/(.-)/")
 local file_Find = file.Find
 local AddCSLuaFile = AddCSLuaFile
 local include = include
@@ -23,7 +22,7 @@ elseif CLIENT then
 end
 
 local function RunFile(file_path)
-	local file = file_path:match("^.+/(.+)$")
+	local file = file_path:match(".+/(.+)")
 	
 	if !file:EndsWith(".lua") then return end
 	
@@ -48,11 +47,11 @@ local function RunFile(file_path)
 end
 
 local function AddFile(file_path)
-	local file = file_path:match("^.+/(.+)$")
+	local file = file_path:match(".+/(.+)")
 	
 	if !file:EndsWith(".lua") then return end
 	
-	local file_path_no_file = file_path:match("(.+)/.+")
+	local file_path_no_file = file_path:match(".+/")
 	
 	if file == "module_init.lua" then		
 		if SERVER then
@@ -131,9 +130,5 @@ function LoadFiles(file_path, recursive_path)
 end
 
 LoadFiles()
-
-print()
-
-print(msg)
 
 print()
