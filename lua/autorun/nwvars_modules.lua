@@ -37,7 +37,7 @@ function LoadFiles(file_path)
 			
 			local path = ("%s/%s"):format(file_path, folder_name)
 			
-			LoadFiles(path, true)
+			LoadFiles(path)
 		end
 	end
 	
