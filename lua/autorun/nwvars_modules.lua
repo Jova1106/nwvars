@@ -5,21 +5,21 @@ local root_folder_name = debug.getinfo(1).short_src:match("addons/(.-)/")
 local function RunFile(file_path)
 	local file = file_path:match(".+/(.+)")
 	
-	if !file:EndsWith(".lua") then return end
+	if !file:match("(.lua)$") then return end
 	
 	if SERVER then
-		if string.StartWith(file, "_sh_") or string.StartWith(file, "sh_") then
+		if file:match("^_*(sh_)") then
 			AddCSLuaFile(file_path)
 			include(file_path)
-		elseif string.StartWith(file, "_sv_") or string.StartWith(file, "sv_") then
+		elseif file:match("^_*(sv_)") then
 			include(file_path)
-		elseif string.StartWith(file, "_cl_") or string.StartWith(file, "cl_") then
+		elseif file:match("^_*(cl_)") then
 			AddCSLuaFile(file_path)
 		end
 	elseif CLIENT then
-		if string.StartWith(file, "_sh_") or string.StartWith(file, "sh_") then
+		if file:match("^_*(sh_)") then
 			include(file_path)
-		elseif string.StartWith(file, "_cl_") or string.StartWith(file, "cl_") then
+		elseif file:match("^_*(cl_)") then
 			include(file_path)
 		end
 	end
